@@ -1,7 +1,7 @@
 # SRAS
-Simple Recon Automation Script, can be used to complete some tasks and gather information at one go
+Simple Recon Automation Script, can be used to complete some tasks and gather information at one go.
 # Required Tools 
-Subfinder by Project discovery, assetfinder by tomnomnom
+Subfinder by Project discovery, assetfinder by tomnomnom.
 # Languages
 Go version 1.17+  Python3
 
@@ -13,3 +13,9 @@ Go version 1.17+  Python3
 -> ./tools.sh\
 -> ./recon.sh [Enter the domain name and the collaborator address]\
 -> Files are zipped after finished.
+
+
+# Credits and links to the main tools are in the credits file.
+
+
+Tested on Ubuntu 18.04 RDP
