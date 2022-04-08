@@ -12,7 +12,7 @@ Go version 1.17+  Python3
 -> chmod +x tools.sh recon.sh\
 -> ./tools.sh\
 -> ./recon.sh\ 
--> [Enter the domain name and the collaborator address]\
+-> Enter the domain name and the collaborator address\
 -> Files are zipped after finished.
 
 
