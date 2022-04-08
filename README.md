@@ -10,6 +10,6 @@ Go version 1.17+  Python3
 -> git clone https://github.com/dotslashed/SRAS.git \
 -> cd SRAS\
 -> chmod +x tools.sh recon.sh\
-->./tools.sh\
-->./recon.sh [Enter the domain name and the collaborator address]\
+-> ./tools.sh\
+-> ./recon.sh [Enter the domain name and the collaborator address]\
 -> Files are zipped after finished.
