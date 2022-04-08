@@ -7,7 +7,7 @@ Go version 1.17+  Python3
 
 
 # Cloning and running
--> git clone https://github.com/dotslashed/SRAS.git
+-> git clone https://github.com/dotslashed/SRAS.git \
 -> cd SRAS\
 -> chmod +x tools.sh recon.sh\
 ->./tools.sh\
