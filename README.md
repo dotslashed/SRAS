@@ -15,7 +15,7 @@ Go version 1.17+  Python3
 -> Files are zipped after finished.
 
 
-# Credits and links to the main tools are in the credits file.
+# Credits and links to the tools used are in the credits file.
 
 
 Tested on Ubuntu 18.04 RDP
