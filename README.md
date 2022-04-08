@@ -11,7 +11,7 @@ Go version 1.17+  Python3
 -> cd SRAS\
 -> chmod +x tools.sh recon.sh\
 -> ./tools.sh\
--> ./recon.sh [Enter the domain name and the collaborator address]\
+-> ./recon.sh \
 -> Files are zipped after finished.
 
 
