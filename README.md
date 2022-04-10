@@ -1,7 +1,7 @@
 # SRAS
 Simple Recon Automation Script, can be used to complete some tasks and gather information at one go.
 # Required Tools 
-Subfinder by Project discovery, assetfinder by tomnomnom.
+Subfinder by Project discovery, assetfinder by tomnomnom, chrome for browser crawling.
 # Required languages
 Go version 1.17+  Python3
 
