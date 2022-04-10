@@ -7,7 +7,7 @@ GREEN='\033[0;92m'
 mkdir recon
 cd recon
 
-echo -e "${RED}===================Simple Recon Automation Script================================="
+echo -e "${RED}===================Simple Recon Automation Script=============================="
 
 echo -e "${GREEN}Please enter your target domain:::${NC}"
 
