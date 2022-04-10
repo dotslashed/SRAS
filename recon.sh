@@ -49,7 +49,7 @@ rm subdomains_found.txt
 
 echo "Subdomains found and Saved!!!"
 
-echo -e "${GREEN}[+]Collecting hosts from urls"; echo -e "${NC}"
+echo -e "${GREEN}[+]Collecting hosts from urls${NC}"
 
 sleep 3
 
