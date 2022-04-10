@@ -9,15 +9,15 @@ cd recon
 
 echo -e "${RED}===================Simple Recon Automation Script================================="
 
-echo -e "${GREEN}Please enter your target domain:::"; echo -e "${NC}"
+echo -e "${GREEN}Please enter your target domain:::${NC}"
 
 read TARGET
 
-echo -e "${GREEN}Please also enter your collaborator payload with protocol:::"; echo -e "${NC}"
+echo -e "${GREEN}Please also enter your collaborator payload with protocol:::${NC}"
 
 read COLLAB
 
-echo -e "${GREEN}[+]Finding subdomains using subfinder"; echo -e "${NC}"
+echo -e "${GREEN}[+]Finding subdomains using subfinder${NC}"
 
 sleep 3
 
@@ -28,14 +28,14 @@ sleep 2
 subfinder -d $TARGET -silent | httpx -silent | tee subdomains_found.txt
 
 
-echo -e "${GREEN}[+]Finding subdomains using assetfinder"; echo -e "${NC}"
+echo -e "${GREEN}[+]Finding subdomains using assetfinder${NC}"
 
 sleep 3
 
 assetfinder --subs-only $TARGET | httpx -silent | tee -a subdomains_found.txt
 
 
-echo -e "${GREEN}[+]Finding subdomains using crt.sh"; echo -e "${NC}"
+echo -e "${GREEN}[+]Finding subdomains using crt.sh${NC}"
 
 sleep 3
 
@@ -53,12 +53,12 @@ echo -e "${GREEN}[+]Collecting hosts from urls"; echo -e "${NC}"
 
 sleep 3
 
-echo -e "${GREEN}[+]Saving the Page Titles..."; echo -e "${NC}"
+echo -e "${GREEN}[+]Saving the Page Titles...${NC}"
 
 cat final_subs.txt | get-title -c 50 >> titles.txt
 
 sleep 3
-echo -e "${GREEN}[+]Port Scanning the hosts"; echo -e "${NC}"
+echo -e "${GREEN}[+]Port Scanning the hosts${NC}"
 
 cat final_subs.txt | sed 's/http:\/\///g' | sed 's/https:\/\///g' >> naked_hosts.txt
 
@@ -69,7 +69,7 @@ rm naked_hosts.txt
 
 sleep 3
 
-echo -e "${GREEN}[+]Gathering urls from web archive. This may take some time for larger scopes"; echo -e "${NC}"
+echo -e "${GREEN}[+]Gathering urls from web archive. This may take some time for larger scopes${NC}"
 
 sleep 3
 
@@ -85,19 +85,19 @@ cat urls.txt | httpx -silent -t 500 >> waygau.txt
 rm way.txt gau.txt
 rm urls.txt
 
-echo -e "${GREEN}[+]Gathering only the paths from urls..."; echo -e "${NC}"
+echo -e "${GREEN}[+]Gathering only the paths from urls...${NC}"
 
 sleep 3
 
 cat waygau.txt | unfurl format %s://%d%p >> only_paths.txt
 
-echo -e "${GREEN}[+]Deduplicating the urls..."; echo -e "${NC}"
+echo -e "${GREEN}[+]Deduplicating the urls...${NC}"
 
 sleep 3
 
 cat waygau.txt | deduplicate --hide-useless --sort >> deduped.txt
 
-echo -e "${GREEN}[+] Crawling the subdomains using headless chrome"; echo -e "${NC}"
+echo -e "${GREEN}[+] Crawling the subdomains using headless chrome${NC}"
 
 cat final_subs.txt | while read items do; do crawlergo_cmd -c /usr/bin/google-chrome -t 20 $items; done | tee crawlergo_results.txt
 
@@ -107,12 +107,12 @@ rm crawlergo_results.txt
 
 cat only_paths.txt | grep "\.js$" >> jsfiles.txt
 
-echo -e "${GREEN}Crawling using hakrawler..."; echo -e "${NC}"
+echo -e "${GREEN}Crawling using hakrawler...${NC}"
 
 cat final_subs.txt | hakrawler >> hakrawler_results.txt
 
 
-echo -e "${GREEN}[+]Testing for ssrf from wayback URLS only..."; echo -e "${NC}"
+echo -e "${GREEN}[+]Testing for ssrf from wayback URLS only...${NC}"
 
 cat waygau.txt | grep "?" | grep "=" | qsreplace $COLLAB >> ssrfFuzz.txt
 
@@ -126,12 +126,12 @@ ffuf -w ssrf2.txt -u FUZZ -t 50
 
 echo -e "${RED} Check your luck in collaborator..."
 
-echo -e "${GREEN}Finding unfiltered characters using kxss..."; echo -e "${NC}"
+echo -e "${GREEN}Finding unfiltered characters using kxss...${NC}"
 
 cat waygau.txt | grep "=" | kxss >> kxss_results.txt
 
 
-echo -e "${GREEN}[+]Gathering for js files, links and secrets:::"; echo -e "${NC}"
+echo -e "${GREEN}[+]Gathering for js files, links and secrets:::${NC}"
 
 sleep 5
 
@@ -165,4 +165,4 @@ rm -rf recon/
 
 sleep 3
 
-echo -e "${RED}[+] Phewwww! Done...All the results are zipped. This is not the end, Please test remaining stuffs manually***"; echo -e "${NC}"
+echo -e "${RED}[+] Phewwww! Done...All the results are zipped. This is not the end, Please test remaining stuffs manually***${NC}"
