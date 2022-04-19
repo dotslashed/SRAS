@@ -36,4 +36,6 @@ go install github.com/hakluke/hakrawler@latest > /dev/null 2>&1
 
 go install github.com/Emoe/kxss@latest > /dev/null 2>&1
 
+go install github.com/haccer/subjack@latest > /dev/null 2>&1
+
 echo "Installation Completed!"
