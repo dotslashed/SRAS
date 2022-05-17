@@ -90,6 +90,12 @@ cat urls.txt | httpx -silent -t 500 >> waygau.txt
 rm way.txt gau.txt
 rm urls.txt
 
+mkdir extensions
+
+echo -e "${GREEN}[+]Gathering and saving urls having extensions only...${NC}"
+
+cat waygau.txt | eae | awk '{print $4}' | sed 's/$/\$/g' | sed 's/^/\\/g' | while read ext do; do grep "$ext" waygau.txt ; done >> extensions/urls_ext.txt
+
 echo -e "${GREEN}[+]Gathering only the paths from urls...${NC}"
 
 sleep 3
