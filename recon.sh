@@ -70,7 +70,7 @@ wget "https://raw.githubusercontent.com/haccer/subjack/master/fingerprints.json"
 
 subjack -w naked_hosts.txt -t 100 -timeout 30 -o subtakeoverresults.txt -a -v -c ./fingerprints.json
 
-rm naked_hosts.txt
+
 
 sleep 3
 
@@ -78,9 +78,9 @@ echo -e "${GREEN}[+]Gathering urls from web archive. This may take some time for
 
 sleep 3
 
-cat final_subs.txt | waybackurls >> way.txt
+cat naked_hosts.txt | waybackurls >> way.txt
 
-cat final_subs.txt | gau --subs >> gau.txt
+cat naked_hosts.txt | gau --subs >> gau.txt
 
 
 cat way.txt gau.txt | sort -u >> urls.txt
