@@ -70,7 +70,7 @@ wget "https://raw.githubusercontent.com/haccer/subjack/master/fingerprints.json"
 
 subjack -w naked_hosts.txt -t 100 -timeout 30 -o subtakeoverresults.txt -a -v -c ./fingerprints.json
 
-
+cat naked_hosts.txt | while read domains do; do nslookup $domains | grep "canonical" ; done | tee cnames.txt
 
 sleep 3
 
