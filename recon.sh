@@ -110,11 +110,11 @@ cat waygau.txt | deduplicate --hide-useless --sort >> deduped.txt
 
 echo -e "${GREEN}[+] Crawling the subdomains using headless chrome${NC}"
 
-cat final_subs.txt | while read items do; do crawlergo_cmd -c /usr/bin/google-chrome -t 20 $items; done | tee crawlergo_results.txt
+# cat final_subs.txt | while read items do; do crawlergo_cmd -c /usr/bin/google-chrome -t 20 $items; done | tee crawlergo_results.txt
 
-cat crawlergo_results.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u >> crawled_urls.txt
+# cat crawlergo_results.txt | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u >> crawled_urls.txt
 
-rm crawlergo_results.txt
+# rm crawlergo_results.txt
 
 cat only_paths.txt | grep "\.js$" >> jsfiles.txt
 
