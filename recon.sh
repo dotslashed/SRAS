@@ -74,7 +74,7 @@ wget "https://raw.githubusercontent.com/haccer/subjack/master/fingerprints.json"
 
 subjack -w naked_hosts.txt -t 100 -timeout 30 -o subtakeoverresults.txt -a -v -c ./fingerprints.json
 
-cat naked_hosts.txt | while read domains do; do nslookup $domains | grep "canonical" ; done | tee cnames.txt
+# cat naked_hosts.txt | while read domains do; do nslookup $domains | grep "canonical" ; done | tee cnames.txt
 
 sleep 3
 
@@ -122,7 +122,7 @@ echo -e "${GREEN}[+] Crawling the subdomains using headless chrome${NC}"
 
 cat only_paths.txt | grep "\.js$" >> jsfiles.txt
 
-echo -e "${GREEN}Crawling using hakrawler...${NC}"
+echo -e "${GREEN}Crawling using hakrawler..${NC}"
 
 cat final_subs.txt | hakrawler >> hakrawler_results.txt
 
@@ -139,14 +139,14 @@ sed -i "s|$|\&dest=$2\&redirect=$2\&uri=$2\&path=$2\&continue=$2\&url=$2\&window
 echo "Firing the requests - check your server for potential callbacks"
 ffuf -w ssrf2.txt -u FUZZ -t 50 -v -r
 
-echo -e "${RED} Check your luck in collaborator..."
+echo -e "${RED} Check your luck in collaborator.."
 
 echo -e "${GREEN}Finding unfiltered characters using kxss...${NC}"
 
 cat waygau.txt | grep "=" | kxss >> kxss_results.txt
 
 
-echo -e "${GREEN}[+]Gathering for js files, links and secrets:::${NC}"
+echo -e "${GREEN}[+]Gathering for js files, links and secrets..${NC}"
 
 sleep 5
 
@@ -180,4 +180,4 @@ rm -rf recon/
 
 sleep 3
 
-echo -e "${RED}[+] Phewwww! Done...All the results are zipped. This is not the end, Please test remaining stuffs manually***${NC}"
+echo -e "${RED}[+] Phewwww! Done...All the results are zipped. ***This is not the end, Please test remaining stuffs manually***${NC}"
