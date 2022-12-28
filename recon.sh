@@ -68,11 +68,13 @@ echo -e "${GREEN}[+]Getting DNS details..${NC}"
 go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest > /dev/null 2>&1
 cat naked_hosts.txt | dnsx -silent -a -resp -cname | tee dns_details.txt
 
-echo -e "${GREEN}[+]Scanning for possible subdomain takeovers${NC}"
+echo -e "${GREEN}[+]Scanning for possible subdomain and mx takeovers${NC}"
 
 wget "https://raw.githubusercontent.com/haccer/subjack/master/fingerprints.json" > /dev/null 2>&1
 
 subjack -w naked_hosts.txt -t 100 -timeout 30 -o subtakeoverresults.txt -a -v -c ./fingerprints.json
+
+cat final_subs.txt | mx-takeover -check-whois -w 64 -output mx-take-check.json
 
 # cat naked_hosts.txt | while read domains do; do nslookup $domains | grep "canonical" ; done | tee cnames.txt
 
