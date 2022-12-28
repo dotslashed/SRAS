@@ -34,4 +34,6 @@ go install github.com/haccer/subjack@latest > /dev/null 2>&1
 
 go install github.com/edoardottt/lit-bb-hack-tools/eae@latest > /dev/null 2>&1
 
+go install -v github.com/musana/mx-takeover@latest > /dev/null 2>&1
+
 echo "Installation Completed!"
