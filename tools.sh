@@ -4,6 +4,8 @@ echo "[+]Installing Tools..."
 
 go install github.com/tomnomnom/hacks/get-title@latest > /dev/null 2>&1
 
+dpkg --configure -a
+
 apt install -y libpcap-dev > /dev/null 2>&1
 
 go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest > /dev/null 2>&1
