@@ -102,11 +102,13 @@ echo -e "${GREEN}[+]Gathering and saving urls having extensions only...${NC}"
 
 cat waygau.txt | eae | awk '{print $4}' | sed 's/$/\$/g' | sed 's/^/\\/g' | while read ext do; do grep "$ext" waygau.txt ; done >> extensions/urls_ext.txt
 
-echo -e "${GREEN}[+]Gathering only the paths from urls...${NC}"
+echo -e "${GREEN}[+]Gathering only the paths and pathQuery from urls...${NC}"
 
 sleep 3
 
 cat waygau.txt | unfurl format %s://%d%p >> only_paths.txt
+
+cat waygau.txt | grep "?" | deduplicate --hide-useless -sort | sort -u | unfurl format %p?%q | tee path_query.txt
 
 echo -e "${GREEN}[+]Deduplicating the urls...${NC}"
 
