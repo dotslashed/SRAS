@@ -128,7 +128,7 @@ cat only_paths.txt | grep "\.js$" >> jsfiles.txt
 
 echo -e "${GREEN}Crawling using hakrawler..${NC}"
 
-cat final_subs.txt | hakrawler >> hakrawler_results.txt
+cat final_subs.txt | hakrawler -subs >> hakrawler_results.txt
 
 
 echo -e "${GREEN}[+]Testing for ssrf from wayback URLS only...${NC}"
